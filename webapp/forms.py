@@ -16,11 +16,11 @@ class LoginForm(AuthenticationForm):
 class createRecordForm(forms.ModelForm):
     class Meta:
         model = Record
-        fields = ['first_name', 'last_name','Category' , 'phone','tall','weight', 'address']
+        fields = ['first_name', 'last_name', 'category', 'phone', 'tall', 'weight', 'address']
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-             'Category': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
             'tall': forms.NumberInput(attrs={'class': 'form-control'}),
             'weight': forms.NumberInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),

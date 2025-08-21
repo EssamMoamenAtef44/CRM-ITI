@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, register, login, dashboard, logout, create_record
+from .views import index, register, login, dashboard, logout, create_record, view_record
 urlpatterns = [
    
     path('', index, name='index'),
@@ -13,4 +13,6 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
 
     path('create_record/', create_record, name='create_record'),
+
+    path('view_record/<int:record_id>/', view_record, name='view_record'),
     ]      

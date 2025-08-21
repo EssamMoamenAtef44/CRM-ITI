@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect ,get_object_or_404
 from django.contrib.auth import authenticate ,login , logout
 from .forms import CreateUserForm, LoginForm , createRecordForm
 from django.contrib.auth.decorators import login_required
@@ -39,18 +39,28 @@ def dashboard(request):
 
 
 
+@login_required(login_url='login')
 def create_record(request):
-    form = createRecordForm()
     if request.method == 'POST':
         form = createRecordForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-        
+            try:
+                record = form.save(commit=False)
+                if request.user.is_authenticated:
+                    record.save()
+                    return redirect('dashboard')
+            except Exception as e:
+                print(f"Error saving record: {e}")
+        else:
+            print("Form errors:", form.errors)
     else:
         form = createRecordForm()
 
     return render(request, 'web/create_record.html', {'form': form})
+@login_required(login_url='login')
+def view_record(request, record_id):
+    all_records = get_object_or_404(Record, id=record_id)
+    return render(request, 'web/view_record.html', {'record': all_records} )
 
 def logout(request):
         return redirect('login')

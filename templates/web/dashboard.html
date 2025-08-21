@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1> Welcome to the dashboard page <br>{{user}}!<br></h1>
-<hr style="border: 1px solid #000;margin: 20px 150px;">
+<hr style="border: 1px solid #000;margin: 20px 60px;">
 
 <a href="{% url 'create_record' %}" class="btn btn-outline-primary">Create a new record</a>
 
@@ -18,23 +18,25 @@
       <th scope="col">address</th>
       <th scope="col">tall</th>
       <th scope="col">weight</th>
-      <th scope="col">date</th>
+      <th scope="col">created_at</th>
+      <th scope="col">view</th>
 
     </tr>
   </thead>
   <tbody>
     {% for record in records %}
     <tr>
-      <th scope="row">1</th>
+      
       <td>{{record.id}}</td>
       <td>{{record.first_name}}</td>
       <td>{{record.last_name}}</td>
-      <td>{{record.Category}}</td>
+      <td>{{record.category}}</td>
       <td>{{record.phone}}</td>
       <td>{{record.address}}</td>
       <td>{{record.tall}}</td>
       <td>{{record.weight}}</td>
-      <td>{{record.date}}</td>
+      <td>{{record.created_at}}</td>
+      <td><a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary"> view  </a></td>
 
     </tr>
  

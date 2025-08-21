@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="cart" style="padding-left:50px ;padding-top: 50px; ;">     
+  
+<h3>
+<p><strong>id: </strong>{{record.id}} </p>
+<p><strong>Full Name: </strong>{{record.first_name|capfirst}} {{record.last_name}} </p>
+<p><strong>phone: </strong>{{record.phone}} </p>
+<p><strong>category:  </strong>{{record.category}} </p>
+<p><strong>address: </strong></strong>{{record.address}} </p>
+<p><strong>tall: </strong>{{record.tall}} </p>
+<p><strong>weight:  </strong>{{record.weight}} </p>>
+<p><strong>creation date:  </strong>{{record.created_at}} </p>
+</h3>
+</div>
+{% endblock %}
