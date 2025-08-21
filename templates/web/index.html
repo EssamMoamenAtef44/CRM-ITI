@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center">
+<br>    
+<br>
+<h1>Welcome to our CRM System</h1>
+<br> 
+<h5><br>Keep track of your records effectivley</br></h5>
+<hr style="border: 1px solid #000;margin: 20px 150px;">
+{% if user.is_authenticated %}
+<a href="{% url 'dashboard' %}" class="btn btn-outline-primary">My Dashboard</a>
+{% else %}
+<a href="{% url 'dashboard' %}" class="btn btn-outline-primary">Register</a>
+{% endif %}
+</div>
+    
+{% endblock %}
+

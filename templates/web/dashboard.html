@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1> Welcome to the dashboard page <br>{{user}}!<br></h1>
+<hr style="border: 1px solid #000;margin: 20px 150px;">
+
+<a href="{% url 'create_record' %}" class="btn btn-outline-primary">Create a new record</a>
+
+<div  class="text-center">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">phone</th>
+      <th scope="col">address</th>
+      <th scope="col">tall</th>
+      <th scope="col">weight</th>
+      <th scope="col">date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{record.id}}</td>
+      <td>{{record.first_name}}</td>
+      <td>{{record.last_name}}</td>
+      <td>{{record.Category}}</td>
+      <td>{{record.phone}}</td>
+      <td>{{record.address}}</td>
+      <td>{{record.tall}}</td>
+      <td>{{record.weight}}</td>
+      <td>{{record.date}}</td>
+
+    </tr>
+ 
+   {% endfor %}
+  </tbody>
+</table>
+    
+</div>
+{% endblock %} 
