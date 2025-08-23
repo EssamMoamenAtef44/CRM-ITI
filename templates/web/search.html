@@ -1,18 +1,6 @@
-{% extends 'base.html'%}
-
+{%extends 'base.html'%}
 {% block content %}
-<h1> Welcome to the dashboard page <br>{{user}}!<br></h1>
-<hr style="border: 1px solid #000;margin: 20px 60px;">
 
-<a href="{% url 'create_record' %}" class="btn btn-outline-primary">Create a new record <i class="fa fa-plus" aria-hidden="true"></i> </a>
-
-{% include 'parts/alrtes.html' %}
-
-<div class="text-center" style="margin:20px 100px ;">
-  <form  action="{% url 'search_records'%}" method="get">
-    <input type="search" name="query" placeholder="Search records..." class="form-control w-50 mx-auto my-3">
-    <button type="submit" class="btn btn-outline-dark w-100 btn-block p-2 ">Search</button>
-    <h2>My Records</h2>
 <div  class="text-center">
 <table class="table">
   <thead>
@@ -53,7 +41,7 @@
     <tr>
         <td colspan="10" class="text-center">
      <div class="alert alert-danger" role="alert">
-         No records found!
+         No  found "{{query}}"
      </div>
 
         </td>

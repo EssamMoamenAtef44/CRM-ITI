@@ -11,7 +11,7 @@ class Record(models.Model):
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250) 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='records')
-    phone = models.IntegerField()
+    phone = models.CharField(max_length=20)
     tall = models.IntegerField()
     weight = models.IntegerField()
     address = models.CharField(max_length=250)

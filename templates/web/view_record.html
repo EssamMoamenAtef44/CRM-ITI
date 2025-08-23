@@ -12,5 +12,9 @@
 <p><strong>weight:  </strong>{{record.weight}} </p>>
 <p><strong>creation date:  </strong>{{record.created_at}} </p>
 </h3>
+<br>
+
+<a herf ="{% url 'update_record' record.id %}" class="btn btn-outline-dark">Update Record <i class="fa fa-wrench" aria-hidden="true"></i></a>
+<a herf ="{% url 'delete_record' record.id %}" onclick="return confirm('are you sure you want Delete!')" class="btn btn-outline-danger">Delete Record <i class="fa fa-trash-o" aria-hidden="true"></i></a>
 </div>
 {% endblock %}
